@@ -38,7 +38,7 @@
     const courseCode = document.getElementById('courseCode');
     const semester = document.getElementById('semester');
 
-    function validation() {
+    document.getElementById('enrollbutton').addEventListener('click', function validation() {
         if(studName.value = '') {
             alert('Student name is required');
             return false;
@@ -55,9 +55,14 @@
             alert('Semester is required');
             return false;
         };
+    });
+
+       
+            
+
 
     }
-})
+)
 
 
 
