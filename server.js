@@ -1,6 +1,7 @@
 // === MegaUniversity — Course Enrollment (Starter with TODOs) ===
 const express = require('express');
 const path = require('path');
+const readFile = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -97,7 +98,29 @@ app.get('/courses', (req, res) => {
 app.post('/enroll', (req, res) => {
   // TODO:
   // 1) Read fields from req.body: studentName, studentId, courseCode, semester, reason(optional)
+  fs.readFile('./index.html', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+  });
   // 2) Validate: required fields; studentId matches YYYY-NNNN; course exists
+     document.getElementById('enrollbutton').addEventListener('click', function validation() {
+        if(studName.value = '') {
+            alert('Student name is required');
+            return false;
+        };
+        if(studId.value = '') {
+            alert('Student ID is required');
+            return false;
+        };
+        if(courseCode.value = '') {
+            alert('Course code is required');
+            return false;
+        };
+        if(semester.value = '') {
+            alert('Semester is required');
+            return false;
+        };
+    });
   // 3) Create enrollment object; push; increment id
   // 4) Redirect to /enrollments on success; otherwise show error page with Back link
 
