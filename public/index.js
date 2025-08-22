@@ -37,25 +37,51 @@
     const studId = document.getElementById('studentId');
     const courseCode = document.getElementById('courseCode');
     const semester = document.getElementById('semester');
+    const reason = document.getElementById('reason');
 
-    document.getElementById('enrollbutton').addEventListener('click', function validation() {
-        if(studName.value = '') {
-            alert('Student name is required');
-            return false;
-        };
-        if(studId.value = '') {
-            alert('Student ID is required');
-            return false;
-        };
-        if(courseCode.value = '') {
-            alert('Course code is required');
-            return false;
-        };
-        if(semester.value = '') {
-            alert('Semester is required');
-            return false;
-        };
+    // document.getElementById('enrollbutton').addEventListener('click', function validation() {
+    //     if(studName.value = '') {
+    //         alert('Student name is required');
+    //         return false;
+    //     };
+    //     if(studId.value = '') {
+    //         alert('Student ID is required');
+    //         return false;
+    //     };
+    //     if(courseCode.value = '') {
+    //         alert('Course code is required');
+    //         return false;
+    //     };
+    //     if(semester.value = '') {
+    //         alert('Semester is required');
+    //         return false;
+    //     };
+    // });
+
+     reason.addEventListener('input', () => {
+        `${reason.value.length} / 200`;
     });
+
+    function clearValidation() {
+    form.textContent = '';
+    fields.forEach(field => {
+      const input = document.getElementById(field.id);
+      const errorElem = document.getElementById(field.errorId);
+      input.classList.remove('error');
+      errorElem.textContent = '';
+    });
+  }
+
+  function showError(inputElem, errorElem, message) {
+    inputElem.classList.add('error');
+    errorElem.textContent = message;
+  }
+
+    form.addEventListener('submit', function (e){
+        e.preventDefault();
+        clearValidation();
+
+    })
 
        
             
